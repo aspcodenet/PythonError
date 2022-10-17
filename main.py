@@ -1,3 +1,21 @@
+class Artist:
+    def __init__(self,namn:str):
+        self.__Namn = namn
+        self.__Album = []
+
+class Album:
+    def __init__(self,namn:str, year:int):
+        self.__Namn = namn
+        self.__Year = year
+        self.__Songs = []
+
+
+class Song:
+    def __init__(self,namn:str, length:int):
+        self.__Namn = namn
+        self.__Year = length
+
+
 #Raise own Exceptions
 # (usecase - def __init__ )
 # usecase SetAge(self, int)

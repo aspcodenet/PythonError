@@ -2,18 +2,45 @@ class Artist:
     def __init__(self,namn:str):
         self.__Namn = namn
         self.__Album = []
-
+    def AddAlbum(self, album):
+        self.__Album.append(album)
+    # def CreateAlbum(self, albumname, albumreleaseyear ):
+    #     self.__Album.append(Album(albumname,albumreleaseyear))
 class Album:
     def __init__(self,namn:str, year:int):
         self.__Namn = namn
         self.__Year = year
         self.__Songs = []
-
-
+    def AddSong(self, song):
+        self.__Songs.append(song)
+    def GetTotalLength(self):
+        summa = 0
+        for song in self.__Songs:
+            summa = summa + song.GetLength()
+        return summa
 class Song:
     def __init__(self,namn:str, length:int):
         self.__Namn = namn
-        self.__Year = length
+        self.__Length = length
+    def GetLength(self):
+        return self.__Length
+
+art = Artist("Stefan")
+#art.CreateAlbum("Sånger från Pythonskogen", 1980)
+album1 = Album("Sånger från Pythonskogen", 1980)
+art.AddAlbum(album1)
+album2 = Album("Hej hopp", 1990)
+art.AddAlbum(album2)
+
+song1 = Song("Song1", 12)
+album1.AddSong(song1)
+song2 = Song("Song2", 11)
+album1.AddSong(song2)
+album2.AddSong(song2)
+song3 = Song("Song3", 13)
+album2.AddSong(song3)
+
+print(art)
 
 
 #Raise own Exceptions
